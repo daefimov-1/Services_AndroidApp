@@ -9,6 +9,7 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var goToSecondActivityButton: Button
     lateinit var startButton: Button
     lateinit var stopButton: Button
     lateinit var startButton2: Button
@@ -22,6 +23,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
+
+        goToSecondActivityButton = findViewById(R.id.btn_goToSecondActivity)
+        goToSecondActivityButton.setOnClickListener {
+            Intent(this, MainActivity2::class.java).also {
+                startActivity(it)
+            }
+        }
 
         startButton = findViewById(R.id.btn_start)
         stopButton = findViewById(R.id.btn_stop)
